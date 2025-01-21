@@ -10,12 +10,17 @@ body{
     width: 70%;
     border-radius: 50px;
     margin:auto;
-    height:70vh;
+    height: 60%;
     text-align: center;
     background-color: black;
     padding:20px;
     margin: 30px auto;
     border:4px white ridge;
+}
+.main-page img{
+    width: 100%;;
+    min-width: 400px;
+    
 }
 h1{
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
