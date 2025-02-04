@@ -1,15 +1,17 @@
-mainpageEl = document.querySelector('.main-page');
-voiletEl = document.querySelector('.voilet');
+ const mainpageEl = document.querySelector('.main-page');
+const voiletEl = document.querySelector('.voilet');
 console.log(voiletEl);
-blueEl = document.querySelector('.blue');
-indigoEl = document.querySelector('.indigo')
-greenEl = document.querySelector('.green')
-yellowEl = document.querySelector('.yellow');
-orangeEl = document.querySelector('.orange');
-redEl = document.querySelector('.red');
-rainbowEl = document.querySelector('.rainbow')
-resetEl = document.getElementById('reset');
-randomEl= document.getElementById('random');
+ const blueEl = document.querySelector('.blue');
+const indigoEl = document.querySelector('.indigo')
+ const greenEl = document.querySelector('.green')
+const yellowEl = document.querySelector('.yellow');
+const orangeEl = document.querySelector('.orange');
+ const redEl = document.querySelector('.red');
+const rainbowEl = document.querySelector('.rainbow')
+const resetEl = document.getElementById('reset');
+const randomEl= document.getElementById('random');
+const sevenEl = document.getElementById('seven');
+
 
 
 function randomColorGeneration(){
@@ -23,22 +25,24 @@ function randomColorGeneration(){
         const min = 0;
        red =  Math.random() * (max - min) + min;
        red = Math.trunc(red);
-       console.log(red);
+
 
        green = Math.random() * (max - min) + min;
        green = Math.trunc(green);
-       console.log(green);
+   
 
 
        blue = Math.random() * (max - min) + min;
        blue = Math.trunc(blue);
-       console.log(blue);
+   
 
        const color = `rgb(${red}, ${green}, ${blue})`;
-       console.log("clor: ", color);
+       console.log(color)
+       
 
        mainpageEl.style.backgroundColor  = color;
 }
+
 
 
 function colorChangevoilet(){
@@ -82,6 +86,85 @@ function resetPage(){
 }
 
 
+
+let count = 1;
+let  handler = null;
+
+let clr1, clr2, clr3, clr4, clr5, clr6, clr7;
+
+
+
+
+function generationSevenColor(){
+   
+   
+        if(count == 8) {
+            count = 0;
+            gradientGeneration();
+            clearInterval(handler);
+            handler = null;
+
+        }
+        
+        const max = 256;
+        const min = 0;
+       let  red =  Math.random() * (max - min) + min;
+        red = Math.trunc(red);
+      
+ 
+        let green = Math.random() * (max - min) + min;
+        green = Math.trunc(green);
+   
+ 
+ 
+        let blue = Math.random() * (max - min) + min;
+        blue = Math.trunc(blue);
+
+        const clr =  `rgb(${red}, ${green} , ${blue})`;
+
+        mainpageEl.style.backgroundColor = clr;
+      
+
+        if(count == 1) {clr1 = clr;}
+        else if(count == 2)  clr2 = clr;
+        else if(count == 3)clr3 = clr;
+        else if(count == 4)  clr4 = clr;
+        else if(count == 5)  clr5 = clr;
+        else if(count == 6) clr6 = clr;
+        
+        else { clr7 = clr}
+        count++;
+      
+
+    }
+
+    function gradientGeneration (){
+        mainpageEl.style.background = `linear-gradient(45deg, ${clr1} 0%, ${clr2} 20%, ${clr3} 40%, ${clr4} 60%, ${clr5} 80%, ${clr6} 90%, ${clr7} 100%)`;
+
+        console.log("linear -gradine work")
+        console.log(clr1, clr2, clr3, clr4,clr5, clr6, clr7 )
+    }
+        
+        
+        
+
+    
+   
+   function generationProcess(){
+    if(handler == null){
+        handler = setInterval(generationSevenColor, 500);
+       
+    }
+    else {
+        clearInterval(handler);
+        
+
+    }
+   } 
+
+   
+
+
 voiletEl.addEventListener("click", colorChangevoilet);
 indigoEl.addEventListener('click', colorChangeIndigo);
 blueEl.addEventListener('click', colorChangeBlue);
@@ -91,5 +174,7 @@ orangeEl.addEventListener('click', colorChangeOrange);
 redEl.addEventListener('click', colorChangeRed);
 rainbowEl.addEventListener('click', colorChangeRainbow);
 resetEl.addEventListener('click',resetPage);
-randomEl.addEventListener('click', randomColorGeneration);
+sevenEl.addEventListener('click', generationProcess);
+randomEl.addEventListener('click', randomColorGeneration )
+
 
