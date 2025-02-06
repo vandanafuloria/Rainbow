@@ -1,6 +1,6 @@
  const mainpageEl = document.querySelector('.main-page');
 const voiletEl = document.querySelector('.voilet');
-console.log(voiletEl);
+
  const blueEl = document.querySelector('.blue');
 const indigoEl = document.querySelector('.indigo')
  const greenEl = document.querySelector('.green')
@@ -37,7 +37,7 @@ function randomColorGeneration(){
    
 
        const color = `rgb(${red}, ${green}, ${blue})`;
-       console.log(color)
+      
        
 
        mainpageEl.style.backgroundColor  = color;
@@ -139,6 +139,8 @@ function generationSevenColor(){
     }
 
     function gradientGeneration (){
+
+
         mainpageEl.style.background = `linear-gradient(45deg, ${clr1} 0%, ${clr2} 20%, ${clr3} 40%, ${clr4} 60%, ${clr5} 80%, ${clr6} 90%, ${clr7} 100%)`;
 
         console.log("linear -gradine work")
